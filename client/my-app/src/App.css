@@ -1,0 +1,73 @@
+body{
+  background-color: #222831;
+  padding: 0px;
+  margin: 0px;
+}
+
+.workoutDetailes{
+  background-color:#EEEEEE;
+  color:black;
+  
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border-radius: 40px;
+  padding: 5px;
+  padding-left: 20px;
+  border: 1px solid black;
+  box-shadow: 4px 5px 6px #76ABAE; 
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.navBar{
+  background-color:#76ABAE ;
+  height: 100px;
+  margin-bottom: 10px;
+  margin-top: 0px;
+  display: flex;
+  align-items: center;
+ 
+}
+
+.navBar p{
+  font-size: 50px;
+  font-weight: bolder;
+  margin-left: 10px;
+}
+
+.mainn{
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.workouts{
+  margin-left: 10px;
+  width: 60%;
+  
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: #436b6d;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: fit-content;
+  padding-bottom: 15px;
+  width: 30%;
+  align-items: center;
+  
+}
+
+form  label{
+  margin: 5px;
+}
+
+input{
+  border: none;
+  border-radius: 10px;
+  width: 200px;
+  height: 25px;
+}
