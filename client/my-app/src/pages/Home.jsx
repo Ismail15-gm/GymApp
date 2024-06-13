@@ -1,24 +1,29 @@
-import React, { useEffect, useState } from "react"
-import WorkoutDetailes from "../components/WorkoutDetailes"
-import { json } from "react-router-dom"
+
 import WorkoutForm from "../components/WorkoutForm"
 
-export default function Home() {
-  const [workouts, setWorkouts] = useState(null)
-  
+import { useEffect } from "react"
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 
+// components
+import WorkoutDetailes from "../components/WorkoutDetailes"
+
+
+export default function Home() {
+  const { workouts, dispatch } = useWorkoutsContext()
+  //console.log(workouts)
   useEffect( () => {
     const fetchWorkouts= async ()=>{
     const response = await fetch("http://localhost:4000/api/workouts/")
     const json = await response.json()
     if (response.ok) {
-      setWorkouts(json)
+      dispatch({type: 'SET_WORKOUTS', payload: json})
     }
   }
   fetchWorkouts()
-  },[])
+  },[dispatch])
 
   return (
+
     <div className="mainn">
       <div className="workouts">
       {workouts &&
@@ -26,7 +31,7 @@ export default function Home() {
           <WorkoutDetailes key={workout._id} workout={workout} />
         ))}
         </div>
-        <WorkoutForm />
+        <WorkoutForm value={workouts} />
     </div>
   )
 }

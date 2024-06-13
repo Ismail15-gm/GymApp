@@ -2,7 +2,12 @@ import React from "react"
 import { useState } from "react"
 import { json } from "react-router-dom"
 
-export default function WorkoutForm() {
+
+import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
+
+
+export default function WorkoutForm(workouts) {
+  const { dispatch } = useWorkoutsContext()
   const [title, setTitle] = useState("")
   const [reps, setReps] = useState("")
   const [load, setLoad] = useState("")
@@ -10,17 +15,18 @@ export default function WorkoutForm() {
 
   const handlSubmit = async (e) => {
     e.preventDefault()
-    
     const workout = { title, reps, load }
+
+    console.log(workout)
     const response = await fetch("http://localhost:4000/api/workouts", {
       method: "POST",
-      Body: JSON.stringify(workout),
+      body: JSON.stringify(workout),
       headers: {
         "content-type": "application/json",
       },
     })
-
-    const json = response.json()
+    
+    const json = await response.json()
     if (!response.ok) {
       setErr(json.error)
     } else {
@@ -28,6 +34,7 @@ export default function WorkoutForm() {
       setLoad("")
       setTitle("")
       setReps("")
+      dispatch({type: 'CREATE_WORKOUT', payload: json})
       console.log("new workout added :", json)
     }
 
