@@ -11,7 +11,7 @@ export default function WorkoutForm(workouts) {
   const [title, setTitle] = useState("")
   const [reps, setReps] = useState("")
   const [load, setLoad] = useState("")
-  const [err, setErr] = useState("")
+  const [error, setError] = useState("s")
 
   const handlSubmit = async (e) => {
     e.preventDefault()
@@ -25,12 +25,13 @@ export default function WorkoutForm(workouts) {
         "content-type": "application/json",
       },
     })
-    
+
     const json = await response.json()
+
     if (!response.ok) {
-      setErr(json.error)
+      setError(json.err)
     } else {
-      setErr(null)
+      setError(null)
       setLoad("")
       setTitle("")
       setReps("")
@@ -62,7 +63,7 @@ export default function WorkoutForm(workouts) {
         onChange={(e) => setLoad(e.target.value)}
       />
       <button onClick={handlSubmit}>Submit</button>
-      {err && <div className="error">{err}</div>}
+      {error && <div className="error">{error}</div>}
     </form>
   )
 }
