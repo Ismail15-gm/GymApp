@@ -9,16 +9,23 @@ import {
 } from "react-router-dom"
 import NavBar from "./components/NavBar"
 import Home from "./pages/Home"
+import Login from "./pages/Login"
+import SignUp from "./pages/SignUp"
 
 function App() {
   const router = createBrowserRouter(
-    createRoutesFromElements(<Route path="/" element={<Home />}></Route>)
+    createRoutesFromElements(
+      <Route path="/" element={<NavBar />}>
+        <Route path="/" element={<Login />} /> {/* Corrected path */}
+        <Route path="/home" element={<Home />} />
+        <Route path="/signup" element={<SignUp />} /> {/* Corrected path */}
+      </Route>
+    )
   )
 
   return (
     <div>
-      <NavBar />
-      <RouterProvider router={router}></RouterProvider>
+      <RouterProvider router={router} />
     </div>
   )
 }

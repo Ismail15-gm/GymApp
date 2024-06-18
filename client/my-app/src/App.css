@@ -1,52 +1,50 @@
-body{
+body {
   background-color: #222831;
   padding: 0px;
   margin: 0px;
 }
 
-.workoutDetailes{
-  background-color:#EEEEEE;
-  color:black;
-  
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.workoutDetailes {
+  background-color: #eeeeee;
+  color: black;
+
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   border-radius: 40px;
   padding: 5px;
   padding-left: 20px;
   border: 1px solid black;
-  box-shadow: 4px 5px 6px #76ABAE; 
+  box-shadow: 4px 5px 6px #76abae;
   font-size: 18px;
   margin-top: 15px;
 }
 
-.navBar{
-  background-color:#76ABAE ;
+.navBar {
+  background-color: #76abae;
   height: 100px;
   margin-bottom: 10px;
   margin-top: 0px;
   display: flex;
   align-items: center;
- 
 }
 
-.navBar p{
+.navBar p {
   font-size: 50px;
   font-weight: bolder;
   margin-left: 10px;
 }
 
-.mainn{
+.mainn {
   display: flex;
   justify-content: space-around;
-
 }
 
-.workouts{
+.workouts {
   margin-left: 10px;
   width: 60%;
-  
 }
 
-form{
+form {
   display: flex;
   flex-direction: column;
   color: white;
@@ -58,16 +56,41 @@ form{
   padding-bottom: 15px;
   width: 30%;
   align-items: center;
-  
 }
 
-form  label{
+form label {
   margin: 5px;
 }
 
-input{
+input {
   border: none;
   border-radius: 10px;
   width: 200px;
   height: 25px;
+}
+
+.error {
+  background-color: rgba(234, 11, 11, 0.855);
+  padding: 10px;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.success{
+  background-color: rgba(7, 196, 92, 0.855);
+  padding: 10px;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+button {
+  margin-top: 10px;
+  font-size: 20px;
+  border: none ;
+  border-radius: 19px;
+  padding: 8px 30px;
 }

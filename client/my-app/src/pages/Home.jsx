@@ -8,6 +8,7 @@ import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 import WorkoutDetailes from "../components/WorkoutDetailes"
 
 
+
 export default function Home() {
   const { workouts, dispatch } = useWorkoutsContext()
   //console.log(workouts)

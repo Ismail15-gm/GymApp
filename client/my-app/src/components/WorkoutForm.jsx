@@ -11,7 +11,7 @@ export default function WorkoutForm(workouts) {
   const [title, setTitle] = useState("")
   const [reps, setReps] = useState("")
   const [load, setLoad] = useState("")
-  const [error, setError] = useState("s")
+  const [error, setError] = useState("")
 
   const handlSubmit = async (e) => {
     e.preventDefault()
