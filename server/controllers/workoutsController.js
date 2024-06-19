@@ -2,11 +2,9 @@ const { json } = require("express")
 const mongoose = require("mongoose")
 const Workout = require("../models/workoutModel")
 
-
-
-
 const getWorkouts = async (req, res) => {
-  const workouts = await Workout.find({}).sort({ creatAt: 1 })
+  const user_id = req.user._id
+  const workouts = await Workout.find({ user_id }).sort({ creatAt: -1 })
   if (!workouts) {
     res.status(400).json({ err: "no workouts finded" })
   }
@@ -26,9 +24,11 @@ const getWorkout = async (req, res) => {
 }
 
 const creatWorkout = async (req, res) => {
+  const user_id = req.user._id
+  //console.log()
   const { title, reps, load } = req.body
   try {
-    const workout = await Workout.create({ title, reps, load })
+    const workout = await Workout.create({ title, reps, load, user_id })
     res.status(200).json(workout)
   } catch (error) {
     res.status(404).json({ err: error.message })

@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const mongoose = require("mongoose")
+const { Schema } = mongoose
 
 const workoutSchema = new Schema(
   {
@@ -12,11 +12,15 @@ const workoutSchema = new Schema(
       required: true,
     },
     load: {
-      type: String,  // Corrected 'trpe' to 'type'
+      type: String,
+      required: true,
+    },
+    user_id: {
+      type: String,
       required: true,
     },
   },
   { timestamps: true }
-);
+)
 
-module.exports = mongoose.model("Workout", workoutSchema);
+module.exports = mongoose.model("Workout", workoutSchema)
