@@ -8,11 +8,13 @@ export default function LoginUp() {
   const handlSubmit = async (e) => {
     e.preventDefault()
     await login(email,password)
+    setEmail("")
+    setPassword("")
   }
   return (
     <form className="firstForm" onSubmit={handlSubmit}>
       <h1>Login</h1>
-      <p>f3Rd_?&@2Z-fe^iu</p>
+      <p>123sallaA!lsa4</p>
       <label>Email:</label>
       <input
         type="email"

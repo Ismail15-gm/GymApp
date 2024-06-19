@@ -2,11 +2,14 @@ import React from "react"
 import { useState } from "react"
 import { json } from "react-router-dom"
 
+import useAuthContext from "../hooks/useAuthContext"
+
 
 import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
 
 
 export default function WorkoutForm(workouts) {
+  const { user, dispatch: userDispatch } = useAuthContext()
   const { dispatch } = useWorkoutsContext()
   const [title, setTitle] = useState("")
   const [reps, setReps] = useState("")
@@ -23,6 +26,7 @@ export default function WorkoutForm(workouts) {
       body: JSON.stringify(workout),
       headers: {
         "content-type": "application/json",
+        'autorization': `Bearer ${user.token}` ,
       },
     })
 

@@ -1,7 +1,9 @@
 const { json } = require("express")
 const mongoose = require("mongoose")
-
 const Workout = require("../models/workoutModel")
+
+
+
 
 const getWorkouts = async (req, res) => {
   const workouts = await Workout.find({}).sort({ creatAt: 1 })
@@ -23,7 +25,6 @@ const getWorkout = async (req, res) => {
   res.status(200).json(workout)
 }
 
-
 const creatWorkout = async (req, res) => {
   const { title, reps, load } = req.body
   try {
@@ -39,7 +40,7 @@ const updateWorkout = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).json({ error: "Invalid Id Format" })
   }
-  const workout = await Workout.findOneAndUpdate({ _id: id },{...req.body})
+  const workout = await Workout.findOneAndUpdate({ _id: id }, { ...req.body })
   if (!workout) {
     res.status(404).json({ err: "No such A Workout" })
   }
@@ -50,7 +51,7 @@ const deleteWorkout = async (req, res) => {
   const { id } = req.params
   const workout = await Workout.findByIdAndDelete({ _id: id })
   if (!workout) {
-   return res.status(404).json({ err: "not such a workout" })
+    return res.status(404).json({ err: "not such a workout" })
   }
   res.status(202).json(workout)
 }
